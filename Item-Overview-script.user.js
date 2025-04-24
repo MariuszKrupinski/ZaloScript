@@ -5,7 +5,7 @@
 // @description  Adds buttons to select and copy specific columns from a table with saved preferences and modal controls.
 // @author       Mariusz K
 // @match        https://portal.logistics.zalan.do/proxy/item-overview/*
-// @updateURL   https://github.com/MariuszKrupinski/ZaloScript/blob/main/Item-Overview-script.user.js
+// @updateURL   https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/Item-Overview-script.user.js
 // @downloadURL https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/Item-Overview-script.user.js
 // @grant        GM_setClipboard
 // ==/UserScript==
