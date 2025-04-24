@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Copy Selected Columns from Item Overview (with Settings)
 // @namespace    http://tampermonkey.net/
-// @version      2.1
+// @version      2.2
 // @description  Adds buttons to select and copy specific columns from a table with saved preferences and modal controls.
 // @author       You
 // @match        https://portal.logistics.zalan.do/proxy/item-overview/*
@@ -9,6 +9,8 @@
 // @downloadURL https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/Item-Overview-script.user.js
 // @grant        GM_setClipboard
 // ==/UserScript==
+
+//Test Sub
 
 (function () {
     'use strict';
