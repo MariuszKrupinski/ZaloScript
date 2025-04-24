@@ -6,6 +6,8 @@
 // @match        https://portal.logistics.zalan.do/tab/overview/*
 // @match        https://portal.logistics.zalan.do/tab/queries/*
 // @match        https://portal.logistics.zalan.do/*
+// @updateURL   https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/TelegramTracer-AutoExcec-script.user.js
+// @downloadURL https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/TelegramTracer-AutoExcec-script.user.js
 // @grant        none
 // ==/UserScript==
 
