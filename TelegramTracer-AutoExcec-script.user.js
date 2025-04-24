@@ -1,14 +1,13 @@
 // ==UserScript==
 // @name         Auto Execute Telegram Tracer
 // @namespace    http://tampermonkey.net/
-// @version      1.9
+// @version      2
 // @description  Trigger search on Enter, show modal with pasteable QLs, and execute each with delay
 // @match        https://portal.logistics.zalan.do/tab/overview/*
 // @match        https://portal.logistics.zalan.do/tab/queries/*
 // @match        https://portal.logistics.zalan.do/*
 // @updateURL   https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/TelegramTracer-AutoExcec-script.user.js
 // @downloadURL https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/TelegramTracer-AutoExcec-script.user.js
-//Test Subject
 // @grant        none
 // ==/UserScript==
 
