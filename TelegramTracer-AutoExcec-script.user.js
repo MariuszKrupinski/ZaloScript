@@ -2,6 +2,7 @@
 // @name         Auto Execute Telegram Tracer
 // @namespace    http://tampermonkey.net/
 // @version      2.1
+// @author       Mariusz K
 // @description  Trigger search on Enter, show modal with pasteable QLs, and execute each with delay, with count and ETA
 // @match        https://portal.logistics.zalan.do/tab/overview/*
 // @match        https://portal.logistics.zalan.do/tab/queries/*
