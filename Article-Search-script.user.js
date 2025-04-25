@@ -5,8 +5,8 @@
 // @description  Copies Supplier Size, SKU, Supplier SKU, and Supplier Color in a single line format
 // @author        Mariusz Krupinski
 // @match        https://portal.logistics.zalan.do/proxy/article-search/
-// @updateURL   https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/
-// @downloadURL https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/
+// @updateURL   https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/Article-Search-script.user.js
+// @downloadURL https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/Article-Search-script.user.js
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
