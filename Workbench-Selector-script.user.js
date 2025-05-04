@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Workbench Quick Selector
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @description  Add quick workbench selection to modal
 // @author       Mariusz Krupinski
 // @match        https://portal.logistics.zalan.do/*
@@ -10,10 +10,12 @@
 
 (function () {
     'use strict';
+
     const speed = 1;
     let saveButton;
 
     let workbenches = JSON.parse(localStorage.getItem('workbenches')) || [
+        "", // empty string placeholder
         "999-999-999-S-01",
         "300-000-001-N-01",
         "200-013-101-C-99",
@@ -25,8 +27,7 @@
         input.click();
         const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
 
-        let originalValue = input.value + " "; // Force a change even if value is the same
-
+        let originalValue = input.value + " ";
         let deleteIndex = originalValue.length;
 
         function deleteNextChar() {
@@ -65,7 +66,7 @@
         workbenches.forEach(wb => {
             const option = document.createElement('option');
             option.value = wb;
-            option.textContent = wb;
+            option.textContent = wb || '-- Select a Workbench --';
             dropdown.appendChild(option);
         });
     }
@@ -74,7 +75,7 @@
         container.innerHTML = '';
 
         const table = document.createElement('table');
-        table.style.width = '350px'; // Change the table size horizontal
+        table.style.width = '350px';
         table.style.tableLayout = 'fixed';
         table.style.borderCollapse = 'collapse';
         table.style.marginBottom = '10px';
@@ -95,6 +96,8 @@
 
         const tbody = document.createElement('tbody');
         workbenches.forEach((wb, index) => {
+            if (wb === '') return;
+
             const row = tbody.insertRow();
             const cell1 = row.insertCell();
             cell1.textContent = wb;
@@ -128,79 +131,6 @@
 
         table.appendChild(tbody);
         container.appendChild(table);
-    }
-
-    function addWorkbenchSelector(modal) {
-        const inputWrappers = modal.querySelectorAll('.ant-input-affix-wrapper');
-        if (inputWrappers.length === 0) return;
-
-        inputWrappers.forEach(wrapper => {
-            const input = wrapper.querySelector('input#settings-form_workbench.ant-input');
-            if (!input) return;
-
-            if (wrapper.parentNode.querySelector('.workbench-quick-selector')) return;
-
-            const container = document.createElement('div');
-            container.style.marginTop = '10px';
-            container.className = 'workbench-quick-selector';
-
-            const dropdown = document.createElement('select');
-            dropdown.style.width = '100%';
-            dropdown.style.padding = '8px';
-            dropdown.style.marginTop = '8px';
-            dropdown.style.border = '1px solid #ddd';
-            dropdown.style.borderRadius = '4px';
-            updateDropdownOptions(dropdown);
-
-            dropdown.addEventListener('change', () => {
-                simulateTyping(input, dropdown.value);
-            });
-
-            const gearButton = document.createElement('button');
-            gearButton.innerHTML = '&#9881;';
-            gearButton.style.fontSize = '24px';
-            gearButton.style.background = 'transparent';
-            gearButton.style.border = 'none';
-            gearButton.style.cursor = 'pointer';
-            gearButton.style.marginTop = '8px';
-
-
-            const workbenchTableContainer = document.createElement('div');
-            workbenchTableContainer.id = 'workbench-table-container';
-            workbenchTableContainer.style.display = 'none';
-            workbenchTableContainer.style.marginTop = '10px';
-
-            const addButton = document.createElement('button');
-            addButton.textContent = 'Add New Workbench';
-            addButton.className = 'ant-btn ant-btn-primary';
-            addButton.style.backgroundColor = '#4CAF50';
-            addButton.style.borderColor = '#4CAF50';
-            addButton.style.marginTop = '10px';
-            addButton.style.display = 'none';
-            addButton.addEventListener('click', () => {
-                addNewWorkbench(workbenchTableContainer, dropdown);
-            });
-
-            function toggleWorkbenchTable() {
-                if (workbenchTableContainer.style.display === 'none' || workbenchTableContainer.style.display === '') {
-                    workbenchTableContainer.style.display = 'block';
-                    addButton.style.display = 'inline-block';
-                } else {
-                    workbenchTableContainer.style.display = 'none';
-                    addButton.style.display = 'none';
-                }
-            }
-
-            gearButton.addEventListener('click', toggleWorkbenchTable);
-
-            container.appendChild(dropdown);
-            container.appendChild(gearButton);
-            container.appendChild(workbenchTableContainer);
-            container.appendChild(addButton);
-            wrapper.parentNode.insertBefore(container, wrapper.nextSibling);
-
-            renderWorkbenchTable(workbenchTableContainer, dropdown);
-        });
     }
 
     function addNewWorkbench(container, dropdown) {
@@ -257,16 +187,14 @@
             }
         });
 
-        cancelButton.addEventListener('click', () => {
-            newRow.remove();
-        });
+        cancelButton.addEventListener('click', () => newRow.remove());
+
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                e.preventDefault(); // Prevent the default behavior of Enter key (form submission, etc.)
-                saveButton.click(); // Simulate the save action on Enter key press
+                e.preventDefault();
+                saveButton.click();
             }
         });
-
 
         cell2.appendChild(saveButton);
         cell2.appendChild(cancelButton);
@@ -297,7 +225,73 @@
         }
     }
 
-    // Style Injection
+    function addWorkbenchSelector(modal) {
+        const inputWrappers = modal.querySelectorAll('.ant-input-affix-wrapper');
+        if (inputWrappers.length === 0) return;
+
+        inputWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('input#settings-form_workbench.ant-input');
+            if (!input) return;
+
+            if (wrapper.parentNode.querySelector('.workbench-quick-selector')) return;
+
+            const container = document.createElement('div');
+            container.style.marginTop = '10px';
+            container.className = 'workbench-quick-selector';
+
+            const dropdown = document.createElement('select');
+            dropdown.style.width = '100%';
+            dropdown.style.padding = '8px';
+            dropdown.style.marginTop = '8px';
+            dropdown.style.border = '1px solid #ddd';
+            dropdown.style.borderRadius = '4px';
+            updateDropdownOptions(dropdown);
+
+            dropdown.addEventListener('change', () => {
+                simulateTyping(input, dropdown.value);
+            });
+
+            const gearButton = document.createElement('button');
+            gearButton.innerHTML = '&#9881;';
+            gearButton.style.fontSize = '24px';
+            gearButton.style.background = 'transparent';
+            gearButton.style.border = 'none';
+            gearButton.style.cursor = 'pointer';
+            gearButton.style.marginTop = '8px';
+
+            const workbenchTableContainer = document.createElement('div');
+            workbenchTableContainer.id = 'workbench-table-container';
+            workbenchTableContainer.style.display = 'none';
+            workbenchTableContainer.style.marginTop = '10px';
+
+            const addButton = document.createElement('button');
+            addButton.textContent = 'Add New Workbench';
+            addButton.className = 'ant-btn ant-btn-primary';
+            addButton.style.backgroundColor = '#4CAF50';
+            addButton.style.borderColor = '#4CAF50';
+            addButton.style.marginTop = '10px';
+            addButton.style.display = 'none';
+            addButton.addEventListener('click', () => {
+                addNewWorkbench(workbenchTableContainer, dropdown);
+            });
+
+            gearButton.addEventListener('click', () => {
+                const show = workbenchTableContainer.style.display === 'none';
+                workbenchTableContainer.style.display = show ? 'block' : 'none';
+                addButton.style.display = show ? 'inline-block' : 'none';
+            });
+
+            container.appendChild(dropdown);
+            container.appendChild(gearButton);
+            container.appendChild(workbenchTableContainer);
+            container.appendChild(addButton);
+            wrapper.parentNode.insertBefore(container, wrapper.nextSibling);
+
+            renderWorkbenchTable(workbenchTableContainer, dropdown);
+        });
+    }
+
+    // Style
     const style = document.createElement('style');
     style.innerHTML = `
       .ant-modal-content .ant-col.ant-col-10.ant-form-item-label {
@@ -321,50 +315,9 @@
     `;
     document.head.appendChild(style);
 
-    document.body.addEventListener('click', (e) => {
-        const target = e.target.closest('.ant-btn.ant-btn-primary');
-        if (target) {
-            setTimeout(() => {
-                document.querySelectorAll('.ant-modal-wrap').forEach(modalWrap => {
-                    if (modalWrap.style.display !== 'none') {
-                        const modalContent = modalWrap.querySelector('.ant-modal-content');
-                        if (modalContent) {
-                            addWorkbenchSelector(modalContent);
-                        }
-                    }
-                });
-            }, 300); // Wait a moment for modal to open
-        }
-    });
-
-    function setupModalObserver() {
-        const modalAppearObserver = new MutationObserver(mutations => {
-            for (const mutation of mutations) {
-                for (const node of mutation.addedNodes) {
-                    if (
-                        node.nodeType === 1 &&
-                        node.classList.contains('ant-modal-wrap')
-                    ) {
-                        observeVisibility(node); // also handle future visibility
-                        const modalContent = node.querySelector('.ant-modal-content');
-                        if (modalContent) {
-                            addWorkbenchSelector(modalContent);
-                        }
-                    }
-                }
-            }
-        });
-
-        // Observe DOM for modal *additions*
-        modalAppearObserver.observe(document.body, { childList: true, subtree: true });
-
-        // Also scan for already existing modals
-        document.querySelectorAll('.ant-modal-wrap').forEach(observeVisibility);
-    }
-
     function observeVisibility(modalWrap) {
         const visibilityObserver = new MutationObserver(() => {
-            if (modalWrap.style.display !== 'none' && modalWrap.classList.contains('ant-modal-wrap')) {
+            if (modalWrap.style.display !== 'none') {
                 const modalContent = modalWrap.querySelector('.ant-modal-content');
                 if (modalContent) {
                     addWorkbenchSelector(modalContent);
@@ -377,6 +330,46 @@
             attributeFilter: ['style', 'class'],
         });
     }
+
+    function setupModalObserver() {
+        const modalObserver = new MutationObserver(mutations => {
+            for (const mutation of mutations) {
+                for (const node of mutation.addedNodes) {
+                    if (
+                        node.nodeType === 1 &&
+                        node.classList.contains('ant-modal-wrap')
+                    ) {
+                        observeVisibility(node);
+                        const modalContent = node.querySelector('.ant-modal-content');
+                        if (modalContent) {
+                            addWorkbenchSelector(modalContent);
+                        }
+                    }
+                }
+            }
+        });
+
+        modalObserver.observe(document.body, { childList: true, subtree: true });
+
+        document.querySelectorAll('.ant-modal-wrap').forEach(observeVisibility);
+    }
+
+    // Modal activation via button click
+    document.body.addEventListener('click', (e) => {
+        const target = e.target.closest('.ant-btn.ant-btn-primary');
+        if (target) {
+            setTimeout(() => {
+                document.querySelectorAll('.ant-modal-wrap').forEach(modalWrap => {
+                    if (modalWrap.style.display !== 'none') {
+                        const modalContent = modalWrap.querySelector('.ant-modal-content');
+                        if (modalContent) {
+                            addWorkbenchSelector(modalContent);
+                        }
+                    }
+                });
+            }, 300);
+        }
+    });
 
     setupModalObserver();
 })();
