@@ -5,4 +5,4 @@ Quality of Life improvements for the Zalos3 environment.
 [def]: Images/Telegramtracer/Autoexecute.png
 ![plot][def2]
 
-[def2]: MariuszKrupinski/ZaloScript/Images/TelegramTracer/Autoexecute.png
+[def2]: /Images/TelegramTracer/Autoexecute.png
