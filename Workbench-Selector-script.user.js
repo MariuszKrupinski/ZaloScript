@@ -5,6 +5,8 @@
 // @description  Add quick workbench selection to modal
 // @author       Mariusz Krupinski
 // @match        https://portal.logistics.zalan.do/*
+// @updateURL    https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/Workbench-Selector-script.user.js
+// @downloadURL  https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/Workbench-Selector-script.user.js
 // @grant        none
 // ==/UserScript==
 
