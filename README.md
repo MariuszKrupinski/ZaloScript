@@ -9,3 +9,7 @@ Quality of Life improvements for the Zalos3 environment.
   </a>
 
 </div>
+
+
+// @updateURL    https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/
+// @downloadURL  https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/
