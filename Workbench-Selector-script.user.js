@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Workbench Quick Selector
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.6
 // @description  Add quick workbench selection to modal
 // @author       Mariusz Krupinski
 // @match        https://portal.logistics.zalan.do/*
