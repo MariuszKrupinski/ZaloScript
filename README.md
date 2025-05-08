@@ -39,22 +39,22 @@ Once installed, simply reload or revisit the website for the designated addon to
 
 **5.Enjoy!**
 
-## <h2><span style="color: #FFD700;"> ~Article Search </span></h2>
+## Article Search
 Provides the possibility to copy individual or multi EAN informations for the JIRA process.
 
 - **[Install Article Search Script](https://github.com/MariuszKrupinski/ZaloScript/raw/refs/heads/main/Article-Search-script.user.js)**
 
-## <h2><span style="color: #FFD700;"> ~Item Overview </span></h2>
+## Item Overview
 Provides additional options to copy selected columns of informations in the Location.
 
 - **[Install Item Overview Script](https://github.com/MariuszKrupinski/ZaloScript/raw/refs/heads/main/Item-Overview-script.user.js)**
 
-## <h2><span style="color: #FFD700;"> ~Quality Label Protocol </span></h2>
+## Quality Label Protocol
 Provides an extra option to show/hide elements in the table.
 
 - **[Install Quality Label Protocol Script](https://github.com/MariuszKrupinski/ZaloScript/raw/refs/heads/main/Quality-Label-Protocol-script.user.js)**
 
-## <h2><span style="color: #FFD700;"> ~Telegram Tracer </span></h2>
+## Telegram Tracer
 Automates the 1st message log for selected time in a bulk action.
 
 - **[Install Telegram Tracer Script](https://github.com/MariuszKrupinski/ZaloScript/raw/refs/heads/main/TelegramTracer-AutoExcec-script.user.js)**
@@ -72,7 +72,7 @@ Automates the 1st message log for selected time in a bulk action.
 
 </details>
 
-## <h2><span style="color: #FFD700;"> ~Workbench Selector </span></h2>
+## Workbench Selector
 Allows dynamic switching between different Zalos3 workbenches + modular configurations.
 
 - **[Install Workbench Selector Script](https://github.com/MariuszKrupinski/ZaloScript/raw/refs/heads/main/Workbench-Selector-script.user.js)**
