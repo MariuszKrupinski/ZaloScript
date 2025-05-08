@@ -12,7 +12,7 @@
 - [Telegram Tracer](#telegram-tracer)
 - [Workbench Selector](#workbench-selector)
 
-## <h2><span style="color: #FF6347;"> **How To Install?** </span></h2>
+## How To Install?
 **1.Install the Tampermonkey extension**
 
 If you don’t already have it, install Tampermonkey from your browser's extension store:
