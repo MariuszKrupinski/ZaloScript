@@ -11,6 +11,7 @@
 - [Quality Label Protocol](#quality-label-protocol)
 - [Telegram Tracer](#telegram-tracer)
 - [Workbench Selector](#workbench-selector)
+- [Advize Auto Sort](#advize-sort)
 
 ## How To Install?
 **1.Install the Tampermonkey extension**
@@ -76,6 +77,11 @@ Automates the 1st message log for selected time in a bulk action.
 Allows dynamic switching between different Zalos3 workbenches + modular configurations.
 
 - **[Install Workbench Selector Script](https://github.com/MariuszKrupinski/ZaloScript/raw/refs/heads/main/Workbench-Selector-script.user.js)**
+
+## Advize Auto Sort
+Adding a Plane in top Right to automate sort to target with a Delay (adjustable) system
+
+- **[Install Advize Auto Sort Script](https://github.com/MariuszKrupinski/ZaloScript/raw/refs/heads/main/Advize-Auto-Sort-script.user.js)**
 
 
 // @updateURL    https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/
