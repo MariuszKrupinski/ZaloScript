@@ -11,7 +11,7 @@
 - [Quality Label Protocol](#quality-label-protocol)
 - [Telegram Tracer](#telegram-tracer)
 - [Workbench Selector](#workbench-selector)
-- [Advize Auto Sort](#advize-sort)
+- [Advize Auto Sort](#advize-auto-sort)
 
 ## How To Install?
 **1.Install the Tampermonkey extension**
