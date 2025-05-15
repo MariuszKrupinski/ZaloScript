@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Article Search Multi Copy Tool (Scrollable Table)
 // @namespace    http://tampermonkey.net/
-// @version      2.5
+// @version      2.6
 // @description  Enhanced multi-copy tool for Zalando article search with modal and configurable delays.
 // @match        https://portal.logistics.zalan.do/proxy/article-search/
 // @updateURL    https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/Article-Search-script.user.js
