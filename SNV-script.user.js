@@ -5,6 +5,8 @@
 // @description  Shows a hover table with latest row data; copyable with mouse; auto-hides on exit reliably; no infinite loops or reprocessing issues.
 // @author       Mariusz Krupinski
 // @match        https://portal.logistics.zalan.do/proxy/shipping-notice-viewer/*
+// @updateURL    https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/SNV-script.user.js
+// @downloadURL  https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/SNV-script.user.js
 // @grant        none
 // ==/UserScript==
 
