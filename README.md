@@ -12,7 +12,7 @@
 - [Telegram Tracer](#telegram-tracer)
 - [Workbench Selector](#workbench-selector)
 - [Advize Auto Sort](#advize-auto-sort)
-- [Shipping Notice Viewer Copy Table](#SNV-copy)
+- [Shipping Notice Viewer Copy Table](#shipping-notice-viewer-copy-table)
 
 ## How To Install?
 **1.Install the Tampermonkey extension**
