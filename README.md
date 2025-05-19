@@ -12,6 +12,7 @@
 - [Telegram Tracer](#telegram-tracer)
 - [Workbench Selector](#workbench-selector)
 - [Advize Auto Sort](#advize-auto-sort)
+- [Shipping Notice Viewer Copy Table](#SNV-copy)
 
 ## How To Install?
 **1.Install the Tampermonkey extension**
@@ -82,6 +83,10 @@ Allows dynamic switching between different Zalos3 workbenches + modular configur
 Adding a Plane in top Right to automate sort to target with a Delay (adjustable) system
 
 - **[Install Advize Auto Sort Script](https://github.com/MariuszKrupinski/ZaloScript/raw/refs/heads/main/Advize-Auto-Sort-script.user.js)**
+
+## Shipping Notice Viewer Copy Table
+
+- **[Install Shipping Notice Viewer Copy Table](https://github.com/MariuszKrupinski/ZaloScript/raw/refs/heads/main/SNV-script.user.js)**
 
 
 // @updateURL    https://raw.githubusercontent.com/MariuszKrupinski/ZaloScript/main/
